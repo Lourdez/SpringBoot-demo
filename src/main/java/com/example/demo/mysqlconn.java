@@ -1,10 +1,19 @@
 package com.example.demo;
 
 import java.sql.*;
+import org.springframework.stereotype.Component;
+@Component
 public class mysqlconn {
+	
+	public String sample= "";
 
 	public static void main(String[] args) throws ClassNotFoundException {
+		
+sqlcon();
 
+	}
+
+	private static void sqlcon() {
 		Connection connection = null;
 
 		try {
@@ -38,7 +47,16 @@ public class mysqlconn {
 			
 		//	System.out.println("exited with error");
 			 
-		}
+		}		
+	}
 
+	public String getSample() {
+		return sample;
+	}
+
+	public void setSample(String sample) {
+		this.sample = sample;
 	}
 }
+
+

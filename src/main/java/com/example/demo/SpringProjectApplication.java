@@ -10,11 +10,11 @@ public class SpringProjectApplication {
 	public static void main(String[] args) {
 		try {
 			ConfigurableApplicationContext context = SpringApplication.run(SpringProjectApplication.class, args);
-
+//			mysqlconn s = context.getBean(mysqlconn.class);
+			
+			
 			Home h = context.getBean(Home.class);
 			h.connect();
-			Home h2 = context.getBean(Home.class);
-			h2.connect();
 			
 		} catch (Exception e) {
 			System.out.println(e);
