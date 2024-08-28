@@ -78,10 +78,7 @@ public class MysqlConnection {
 		}  catch (Exception exception) {
             System.out.println(exception);
         }
-		finally {
-			
-		//	System.out.println("exited with error");
-			 
+		finally { 
 		}		
 	}
 }
