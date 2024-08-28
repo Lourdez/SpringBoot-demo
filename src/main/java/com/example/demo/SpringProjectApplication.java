@@ -7,14 +7,12 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class SpringProjectApplication {
 
-	public static void main(String[] args) {
+	public static void main (String[] args) {
 		try {
 			ConfigurableApplicationContext context = SpringApplication.run(SpringProjectApplication.class, args);
-//			mysqlconn s = context.getBean(mysqlconn.class);
 			
-			
-			Home h = context.getBean(Home.class);
-			h.connect();
+			MysqlConnection MySql = context.getBean(MysqlConnection.class);
+			MySql.connect();
 			
 		} catch (Exception e) {
 			System.out.println(e);

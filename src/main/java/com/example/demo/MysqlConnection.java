@@ -9,26 +9,44 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope(value="prototype")
-public class Home {
-
-	private String owner;
-	private int doorno;
-	
-	public String getOwner() {
-		return owner;
+public class MysqlConnection {
+	public int EMPLOYEE_ID;
+    public String FIRST_NAME;
+    public String LAST_NAME;
+    
+    MysqlConnection(){    	
+    }
+    
+    
+	public int getEMPLOYEE_ID() {
+		return EMPLOYEE_ID;
 	}
 
-	public void setOwner(String owner) {
-		this.owner = owner;
+
+	public void setEMPLOYEE_ID(int eMPLOYEE_ID) {
+		EMPLOYEE_ID = eMPLOYEE_ID;
 	}
 
-	public int getDoorno() {
-		return doorno;
+
+	public String getFIRST_NAME() {
+		return FIRST_NAME;
 	}
 
-	public void setDoorno(int doorno) {
-		this.doorno = doorno;
+
+	public void setFIRST_NAME(String fIRST_NAME) {
+		FIRST_NAME = fIRST_NAME;
 	}
+
+
+	public String getLAST_NAME() {
+		return LAST_NAME;
+	}
+
+
+	public void setLAST_NAME(String lAST_NAME) {
+		LAST_NAME = lAST_NAME;
+	}
+
 
 	void connect() {
 		Connection connection = null;
@@ -43,17 +61,13 @@ public class Home {
             resultSet = statement.executeQuery(
                     "select * from employees;");
             
-            int EMPLOYEE_ID;
-            String FIRST_NAME;
-            String LAST_NAME;
-            String JOB_ID;
+            
             while (resultSet.next()) {
                 EMPLOYEE_ID = resultSet.getInt("EMPLOYEE_ID");
                 FIRST_NAME = resultSet.getString("FIRST_NAME");
-                LAST_NAME = resultSet.getString("LAST_NAME");
-                JOB_ID = resultSet.getString("JOB_ID").trim();
+                LAST_NAME = resultSet.getString("LAST_NAME").trim();
                 System.out.println("Employee ID : " + EMPLOYEE_ID
-                                   + " Name : " + FIRST_NAME +" "+ LAST_NAME+" " +"Job ID : "+JOB_ID);
+                                   + " Name : " + FIRST_NAME +" "+ LAST_NAME);
             }
 		
             resultSet.close();
